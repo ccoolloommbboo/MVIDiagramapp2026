@@ -510,7 +510,7 @@ def pro_badge_metric(label, main_val, sub_val):
 
 # Inyectamos el HTML en las 3 columnas usando las variables dinámicas
 with p1:
-    st.markdown(pro_badge_metric("Total Panels", f"{total_cabs} Cabs", f"Grid: {cols_in}x{rows_in}"), unsafe_allow_html=True)
+    st.markdown(pro_badge_metric("Total Panels", f"{total_cabs} Panels", f"Grid: {cols_in}x{rows_in}"), unsafe_allow_html=True)
 with p2:
     st.markdown(pro_badge_metric("Screen Dimensions", dim_main, dim_sub), unsafe_allow_html=True)
 with p3:
