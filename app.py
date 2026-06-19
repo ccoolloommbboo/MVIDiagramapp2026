@@ -272,7 +272,7 @@ with st.sidebar:
     with col_d1: d_div_h = st.number_input("Data Splits (H)", 1, 10, 1, key="data_split_h")
     with col_d2: d_div_v = st.number_input("Data Splits (V)", 1, 10, 1, key="data_split_v")
     
-    u_data = st.number_input("Cabs/Port", 1, 500, 10, key="data_cabs_port")
+    u_data = st.number_input("Panels/Port", 1, 500, 10, key="data_Panels_port")
     d_dir = st.selectbox("Data Direction", ["Vertical", "Horizontal"], index=1)
     d_start = st.selectbox("Data Start Point", ["Top-Left", "Top-Right", "Bottom-Left", "Bottom-Right", "Center-Out (Radical Center-Point)"])
     d_style = st.selectbox("Data Wiring Style", ["Snake", "Linear", "Snake (Reset per Port)"])
@@ -288,7 +288,7 @@ with st.sidebar:
     with col_split_2: div_v = st.number_input("SoCa Splits (V)", 1, 10, 1)
     v_mode = st.selectbox("Voltage (V)", [110, 120, 208, 220], index=2)
     breaker_size = st.selectbox("Breaker (Amp)", [15, 20], index=1)
-    u_pwr = st.number_input("Cabs/Circuit", 1, 100, 15, key="pwr_cabs_circuit")
+    u_pwr = st.number_input("Cabs/Circuit", 1, 100, 15, key="pwr_panels_circuit")
     p_dir = st.selectbox("Power Direction", ["Vertical", "Horizontal"], index=1)
     p_start = st.selectbox("Power Start Point", ["Top-Left", "Top-Right", "Bottom-Left", "Bottom-Right"], index=2)
     p_style = st.selectbox("Power Wiring Style", ["Snake", "Linear", "Snake (Reset per Port)"], index=1)
