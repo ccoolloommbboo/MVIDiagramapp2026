@@ -254,7 +254,7 @@ with st.sidebar:
         c_model = safe_get_col('model'); c_watts = safe_get_col('watts')
         c_weight = safe_get_col('weight'); c_pxw = safe_get_col('pixels_w'); c_pxh = safe_get_col('pixels_h')
         c_mmw = safe_get_col('width_mm'); c_mmh = safe_get_col('height_mm')
-        selected_model = st.selectbox("Cabinet Model", df[c_model].unique())
+        selected_model = st.selectbox("Panel Model", df[c_model].unique())
         m_data = df[df[c_model] == selected_model].iloc[0]
         db_watts, kg_val = float(m_data[c_watts]), float(m_data[c_weight])
         px_w, px_h = int(m_data[c_pxw]), int(m_data[c_pxh])
@@ -510,7 +510,7 @@ def pro_badge_metric(label, main_val, sub_val):
 
 # Inyectamos el HTML en las 3 columnas usando las variables dinámicas
 with p1:
-    st.markdown(pro_badge_metric("Total Cabinets", f"{total_cabs} Cabs", f"Grid: {cols_in}x{rows_in}"), unsafe_allow_html=True)
+    st.markdown(pro_badge_metric("Total Panels", f"{total_cabs} Cabs", f"Grid: {cols_in}x{rows_in}"), unsafe_allow_html=True)
 with p2:
     st.markdown(pro_badge_metric("Screen Dimensions", dim_main, dim_sub), unsafe_allow_html=True)
 with p3:
@@ -632,7 +632,7 @@ def export_pdf(data_notes, pwr_notes, z_d, z_p, view_mode):
     pdf.set_text_color(0, 0, 0)
     pdf.set_font("Courier", "B", 10)
     pdf.cell(60, 8, "Port ID", border=1)
-    pdf.cell(60, 8, "Cabinets", border=1)
+    pdf.cell(60, 8, "Panels", border=1)
     pdf.cell(70, 8, "Total Port Pixels", border=1, ln=True)
     pdf.set_font("Courier", "", 10)
     port_count = 1
@@ -671,7 +671,7 @@ def export_pdf(data_notes, pwr_notes, z_d, z_p, view_mode):
         for k in range(0, len(zone), u_pwr * 6):
             pdf.set_font("Courier", "B", 9)
             pdf.cell(45, 7, "Circuit ID", border=1)
-            pdf.cell(45, 7, "Cabinets", border=1)
+            pdf.cell(45, 7, "Panels", border=1)
             pdf.cell(50, 7, "Source SoCa", border=1)
             pdf.cell(50, 7, "Est. Load (Amps)", border=1, ln=True)
             
