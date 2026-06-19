@@ -518,6 +518,11 @@ with p3:
 
 st.markdown("---")
 
+# 👇 NUEVO CÓDIGO PARA MOSTRAR EL TAMAÑO DE LA PANTALLA 👇
+st.markdown(f"<h2 style='text-align: center; color: #0D6EFD;'>🖥️ Screen Size: {cols_in} x {rows_in} Panels</h2>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True) 
+# 👆 FIN DEL NUEVO CÓDIGO 👆
+
 col_diag1, col_diag2 = st.columns(2)
 with col_diag1:
     st.subheader("1. Data Wiring Map")
@@ -586,15 +591,24 @@ def export_pdf(data_notes, pwr_notes, z_d, z_p, view_mode):
         pdf_obj.set_text_color(120, 120, 120)
         pdf_obj.multi_cell(150, 5, f"Venue: {venue_name[:20]}   |   Lead: {lead_tech[:20]}", align="R")
         
-        # Etiqueta de FRONT/REAR VIEW acomodada justo debajo del Venue
+        # Etiquetas de Tamaño de Pantalla y Vista (FRONT/REAR)
         pdf_obj.set_y(pdf_obj.get_y() + 2)
+        
+        # 1. Nueva Etiqueta Azul (Tamaño de la pantalla)
+        pdf_obj.set_fill_color(13, 110, 253) # Color azul MVI
+        pdf_obj.set_text_color(255, 255, 255)
+        pdf_obj.set_font("Arial", "B", 11)
+        
+        # 👇 Movimos el inicio a x=80 y ampliamos el ancho a 70 para que quepa todo el texto sin apretarse
+        pdf_obj.set_x(80) 
+        pdf_obj.cell(70, 6, f" Screen Size: {cols_in} Width x {rows_in} High ", border=0, align="C", fill=True)
+
+        # 2. Etiqueta Original (Front/Rear View)
         if "FRONT" in view_mode:
             pdf_obj.set_fill_color(63, 185, 80) # Verde
         else:
             pdf_obj.set_fill_color(248, 81, 73) # Rojo
             
-        pdf_obj.set_text_color(255, 255, 255)
-        pdf_obj.set_font("Arial", "B", 11)
         pdf_obj.set_x(155) 
         pdf_obj.cell(45, 6, f" {view_mode} ", border=0, ln=True, align="C", fill=True)
         
